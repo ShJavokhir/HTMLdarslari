@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="30dp"
+    android:id="@+id/cat_layout"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="55dp"
+    >
+    <TextView
+        android:layout_gravity="center"
+        android:drawableEnd="@drawable/ic_navigate_next_black_24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="itemName"
+        android:layout_marginLeft="10dp"
+        android:textStyle="normal"
+        android:textSize="26sp"
+        android:id="@+id/lesson_name"/>
+</LinearLayout>

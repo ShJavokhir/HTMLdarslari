@@ -1,0 +1,27 @@
+[
+  {
+    "type":"main",
+    "title":"Theme"
+  },
+  {
+    "type":"simpleText",
+    "text":"Simple text"
+  },
+  {
+    "type":"italicText",
+    "text":"Italic text"
+  },
+  {
+    "type":"warningText",
+    "text":"Remember text"
+  },
+  {
+    "type":"codeText",
+    "text":"codeText"
+  },
+  {
+    "type":"code",
+    "text":"<html><body><a href='kun.uz'>kun.uz\n ga kirish</a></body><html>"
+  }
+
+]

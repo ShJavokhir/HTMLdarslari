@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lesson_bg"
+    android:paddingTop="5dp"
+    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:layout_margin="1dp"
+        android:id="@+id/lnLayout1"
+        >
+
+    <TextView
+
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:text="Namuna kod" />
+    <thereisnospon.codeview.CodeView
+
+        android:id="@+id/codeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></thereisnospon.codeview.CodeView>
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/next_prev"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="15dp">
+
+    <Button
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/prev"
+        android:background="@drawable/next_prev_buttons"
+        android:drawableLeft="@drawable/ic_chevron_left_black_24dp"
+        android:text="Oldingi" android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/next"
+        android:background="@drawable/next_prev_buttons"
+        android:text="Keyingi" android:layout_marginBottom="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentRight="true"
+        android:drawableRight="@drawable/ic_chevron_right_black_24dp"/>
+
+</RelativeLayout>
+
+</LinearLayout></ScrollView>
