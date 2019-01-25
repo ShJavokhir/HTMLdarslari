@@ -1,6 +1,7 @@
 //Tab dagi 1-sahifa
 package uz.dasturlash.html;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -16,6 +17,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import thereisnospon.codeview.CodeView;
+import thereisnospon.codeview.CodeViewTheme;
 
 public class Lesson_Fragment_1 extends Fragment {
     Button next;
@@ -65,14 +69,14 @@ public class Lesson_Fragment_1 extends Fragment {
             if(type.equals("simpleText")){
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-                llp.setMargins(0, 30, 30, 30); // llp.setMargins(left, top, right, bottom);
+                llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
                 text.setText(temp[1]);
                 text.setTextColor(Color.parseColor("#000000"));
                 text.setLayoutParams(llp);
                 text.setTextSize(16);            }else if(type.equals("italicText")){
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-                llp.setMargins(0, 30, 30, 30); // llp.setMargins(left, top, right, bottom);
+                llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
                 text.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
                 text.setText(temp[1]);
                 text.setTextColor(Color.parseColor("#00BBFF"));
@@ -83,12 +87,22 @@ public class Lesson_Fragment_1 extends Fragment {
                 text.setTextColor(Color.parseColor("#FF9800"));
                 text.setBackgroundResource(R.drawable.remember_text);
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                text.setTextSize(17);                llp.setMargins(0, 30, 30, 30); // llp.setMargins(left, top, right, bottom);
+                text.setTextSize(17);                llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
                 text.setLayoutParams(llp);
                 text.setPadding(40,50,20,50);
             }else if(type.equals("codeText")){
-                text.setText(temp[1]);
-                text.setTextColor(Color.parseColor("#00BBFF"));
+               // text.setText(temp[1]);
+               // text.setTextColor(Color.parseColor("#00BBFF"));
+                LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                CodeView codeview = (CodeView) inflater.inflate(R.layout.codeview,null);
+                codeview.setTheme(CodeViewTheme.DARKULA).fillColor();
+                codeview.showCode(temp[1]);
+                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                llp.setMargins(0, 30, 0, 30);
+                codeview.setLayoutParams(llp);
+
+                lnLayout.addView(codeview);
+                continue;
 
             }
            lnLayout.addView(text);

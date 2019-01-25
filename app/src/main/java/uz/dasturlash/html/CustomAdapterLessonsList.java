@@ -2,6 +2,8 @@
 package uz.dasturlash.html;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,23 +39,49 @@ public class CustomAdapterLessonsList extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).
-                    inflate(R.layout.lessons_list_item, parent, false);
-        }
-        LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
-        cat_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context,Lesson.class);
-                intent.putExtra("catId",id);
-                intent.putExtra("lesId",position);
-                context.startActivity(intent);
+        if (items[position].contains("NAZORAT")){
 
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).
+                        inflate(R.layout.lessons_list_item, parent, false);
             }
-        });
-        TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
-        itemName.setText(items[position]);
+            LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+            cat_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context,Task.class);
+                    intent.putExtra("taskId",items[position]);
+                    context.startActivity(intent);
+
+                }
+            });
+            TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+            itemName.setTypeface(null, Typeface.BOLD);;
+            itemName.setTextColor(Color.RED);
+            itemName.setText(position+1+". "+"Topshiriqlar");
+
+
+
+        }else {
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).
+                        inflate(R.layout.lessons_list_item, parent, false);
+            }
+            LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+            cat_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Lesson.class);
+                    intent.putExtra("catId", id);
+                    intent.putExtra("lesId", position);
+                    context.startActivity(intent);
+
+                }
+            });
+            TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+            itemName.setText(position+". "+items[position]);
+        }
         return convertView;
     }
 }
