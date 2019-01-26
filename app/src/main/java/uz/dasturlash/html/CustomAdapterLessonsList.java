@@ -63,7 +63,30 @@ public class CustomAdapterLessonsList extends BaseAdapter {
 
 
 
-        }else {
+        }else if(items[position].contains("TEST")){
+
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).
+                        inflate(R.layout.lessons_list_item, parent, false);
+            }
+            LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+            cat_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context,test.class);
+                    intent.putExtra("testId",items[position]);
+                    context.startActivity(intent);
+
+                }
+            });
+            TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+            itemName.setTypeface(null, Typeface.BOLD);;
+            itemName.setTextColor(Color.BLUE);
+            itemName.setText(position+1+". "+"Nazorat testlari");
+
+
+        } else {
             if (convertView == null) {
                 convertView = LayoutInflater.from(context).
                         inflate(R.layout.lessons_list_item, parent, false);

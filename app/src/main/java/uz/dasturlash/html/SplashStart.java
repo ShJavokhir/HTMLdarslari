@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class SplashStart extends AppCompatActivity {
     private TextView start_title;
-    private static int Splash_time = 3000;
+    private static int Splash_time = 500; //3000
     private ImageView start_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class SplashStart extends AppCompatActivity {
                 try {
                     Log.e("tekshirish","Ishladi !");
 
-                    sleep(2000);
+                    sleep(500);
 
                     Intent intent = new Intent(SplashStart.this,MainActivity.class);
                     startActivity(intent);

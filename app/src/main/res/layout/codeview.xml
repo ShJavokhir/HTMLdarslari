@@ -2,6 +2,5 @@
 <thereisnospon.codeview.CodeView android:id="@+id/codeView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/lesson_bg">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 </thereisnospon.codeview.CodeView>
