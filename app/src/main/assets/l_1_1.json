@@ -1,27 +1,10 @@
 [
   {
     "type":"main",
-    "title":"HTML ga xush kelibsiz"
+    "title":"HTML haqida"
   },
   {
     "type":"simpleText",
-    "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-  },
-  {
-    "type":"italicText",
-    "text":"Simple Italic text :)"
-  },
-  {
-    "type":"warningText",
-    "text":"This is Remember Text :)"
-  },
-  {
-    "type":"codeText",
-    "text":"This will be code place. Need corners"
-  },
-  {
-    "type":"code",
-    "text":"<html>\n<body>\nHello world :)\n</body>\n</html>"
+    "text":"HTML (Hyper Text Markup Language - Gipermatnli belgilash tili) 1991-yillarda Jenevadagi Yevropa zarrachalar instituti (CERN)ning Britaniyalik olimi Tim Bernas Li tomonidan yaratilgan.Dastlab bu til mutaxasislar uchun hujjat tayyorlash vositasi sifatida yaratilgan.HTML da yozilgan kodlar Brauzerlar tomonidan akslantiriladi.U bilan asosan web sahifalar tayyorlanadi. Uning oxirgi chiqqan HTML5 talqinidan 2013 yildan buyon keng foydalaniladi. Ushbu interaktiv dasturimizda siz bilan HTML5 ni o'rganamiz. "
   }
-
 ]

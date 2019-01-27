@@ -322,5 +322,7 @@
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
     <color name="grey_1000">#1a1a1a</color>
-
+    <array name="colors">
+        <item>@color/light_blue_300</item>
+    </array>
 </resources>

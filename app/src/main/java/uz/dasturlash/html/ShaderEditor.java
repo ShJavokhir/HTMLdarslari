@@ -39,29 +39,29 @@ public class ShaderEditor extends android.support.v7.widget.AppCompatEditText {
                     "label|legend|li|link|listing|map|marquee|menu|meta|multicol|nobr|" +
                     "noembed|noframes|noscript|ol|option|p|param|plaintext|pre|s|samp|" +
                     "script|select|small|sound|spacer|span|strike|strong|style|sub|sup|" +
-                    "table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|u|var|wbr|xmp" +
+                    "table|tbody|td|tfoot|th|thead|title|tr|tt|u|var|wbr|xmp" +
                     ")\\b");
     private static final Pattern PATTERN_BUILTINS = Pattern.compile(
-            "\\b(radians|degrees|sin|cos|tan|asin|acos|atan|pow|" +
-                    "exp|log|sqrt|inversesqrt|abs|sign|floor|ceil|fract|mod|" +
-                    "min|max|length|Math|System|out|printf|print|println|" +
-                    "console|Arrays|Array|vector|List|list|ArrayList|Map|HashMap|" +
-                    "dict|java|util|lang|import|from|in|charset|lang|href|name|" +
-                    "target|onclick|onmouseover|onmouseout|accesskey|code|codebase|" +
-                    "width|height|align|vspace|hspace|border|name|archive|mayscript|" +
-                    "alt|shape|coords|target|nohref|size|color|face|src|loop|bgcolor|" +
-                    "background|text|vlink|alink|bgproperties|topmargin|leftmargin|" +
-                    "marginheight|marginwidth|onload|onunload|onfocus|onblur|stylesrc|" +
-                    "scroll|clear|type|value|valign|span|compact|pluginspage|pluginurl|" +
-                    "hidden|autostart|playcount|volume|controls|controller|mastersound|" +
-                    "starttime|endtime|point-size|weight|action|method|enctype|onsubmit|" +
-                    "onreset|scrolling|noresize|frameborder|bordercolor|cols|rows|" +
-                    "framespacing|border|noshade|longdesc|ismap|usemap|lowsrc|naturalsizeflag|" +
-                    "nosave|dynsrc|controls|start|suppress|maxlength|checked|language|onchange|" +
-                    "onkeypress|onkeyup|onkeydown|autocomplete|prompt|for|rel|rev|media|direction|" +
-                    "behaviour|scrolldelay|scrollamount|http-equiv|content|gutter|defer|event|" +
-                    "multiple|readonly|cellpadding|cellspacing|rules|bordercolorlight|" +
-                    "bordercolordark|summary|colspan|rowspan|nowrap|halign|disabled|accesskey|" +
+            "\\b(html|body|title|main|head|type|h1|h2|h3|" +
+                    "h4|h5|a|href|img|src||frame||!DOCTYPE|" +
+                    "!doctype|abbr|acronym|address|applet|area|text|article|aside|" +
+                    "bdi|bdo|big|blockquote|body|br|button|canvas|caption|" +
+                    "center|cite|code|col|colgroup|data|datalist|charset|lang|dd|del|" +
+                    "target|onclick|onmouseover|onmouseout|details|dfn|div|" +
+                    "dl|height|align|vspace|hspace|border|name|archive|em|" +
+                    "alt|embed|field|figure|nohref|size|color|face|src|font|bgcolor|" +
+                    "background|text|vlink|alink|footer|form|frameset|" +
+                    "head|hr|onload|onunload|onfocus|onblur|stylesrc|" +
+                    "scroll|clear|type|value|valign|span|i|input|label|" +
+                    "hidden|autostart|li|link|main|map|mark|" +
+                    "meta|meter|nav|noscript|object|ol|optgroup|option|" +
+                    "output|p|param|picture|pre|cols|rows|" +
+                    "framespacing|border|noshade|progress|q|rp|rt|ruby|" +
+                    "samp|script|section|select|small|source|strong|style|sub|" +
+                    "summary|onkeyup|onkeydown|autocomplete|prompt|sub|sup|svg|table|tbody|" +
+                    "td|template|textarea|http-equiv|content|th|thead|time|" +
+                    "time|tr|track|tt|ul|var|" +
+                    "video|wbr|colspan|rowspan|nowrap|halign|disabled|accesskey|" +
                     "tabindex|id)\\b");
     private static final Pattern PATTERN_COMMENTS = Pattern.compile(
             "/\\*(?:.|[\\n\\r])*?\\*/|//.*");
@@ -284,10 +284,10 @@ public class ShaderEditor extends android.support.v7.widget.AppCompatEditText {
         colorVariable = ContextCompat.getColor(context, R.color.syntax_variable);
         colorNumber = ContextCompat.getColor(
                 context,
-                R.color.syntax_number);
+                R.color.syntax_keyword);
         colorKeyword = ContextCompat.getColor(
                 context,
-                R.color.syntax_keyword);
+                R.color.syntax_number);
         colorBuiltin = ContextCompat.getColor(
                 context,
                 R.color.syntax_builtin);

@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
         <android.support.v7.widget.CardView
             android:id="@+id/cat_layout"
-
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"

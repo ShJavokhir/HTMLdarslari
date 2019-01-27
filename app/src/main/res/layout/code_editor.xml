@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+   <LinearLayout
+       android:background="@drawable/codeeditor"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
    <uz.dasturlash.html.CodeEditText
+       android:textColor="#fff"
        android:layout_margin="10dp"
        android:id="@+id/editCode"
        android:background="@android:color/transparent"
        android:layout_width="match_parent"
        android:layout_height="wrap_content" />
    <Button
-       android:layout_width="match_parent"
+       android:layout_marginTop="50dp"
+       android:layout_marginRight="20dp"
+       android:layout_gravity="right"
+       android:drawableRight="@drawable/run1"
+       android:text="Natijani ko'rish"
+       android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:id="@+id/check" />
-
-</LinearLayout>
+       android:id="@+id/output" />
+      <WebView
+       android:layout_margin="10dp"
+       android:background="@drawable/lesson_bg"
+       android:id="@+id/outputnext"
+       android:layout_width="match_parent"
+       android:layout_height="500dp">
+   </WebView>
+   </LinearLayout>
+</ScrollView>

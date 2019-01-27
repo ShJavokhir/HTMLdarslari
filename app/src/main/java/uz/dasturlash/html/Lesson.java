@@ -74,9 +74,10 @@ public class Lesson extends AppCompatActivity {
         if(!code[0].equals("")){
             Log.e("noob","kod bor");
             adapter.addFragment(fr2, "Namuna");
+            adapter.addFragment(fr3, "Ko'rinish");
         }
-        adapter.addFragment(fr3, "Ko'rinish");
         viewPager.setAdapter(adapter);
+
     }
     public void init(){
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
