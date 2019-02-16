@@ -1,23 +1,28 @@
 //Darslar ro'yhatini ko'rsatish uchun class
 package uz.dasturlash.html;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class Lessons_list extends AppCompatActivity {
     ListView listView;
+    Toolbar toolbar;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons_list);
+        test();
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
         Intent intent = getIntent();
         int id = intent.getIntExtra("id",0);
         GetLessonList lessons = new GetLessonList();
@@ -34,4 +39,14 @@ public class Lessons_list extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    void test(){
+        SharedPreferences pref = getSharedPreferences("base", Context.MODE_PRIVATE);
+        String name = pref.getString("salome","as");
+        if(name.equals("0")){
+          Log.e("salom","afsus");
+        }else {
+            Log.e("salom", name);
+        }
+
+        }
 }

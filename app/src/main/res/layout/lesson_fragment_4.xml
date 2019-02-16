@@ -1,49 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
+    android:id="@+id/rl"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/lesson_bg"
     android:paddingTop="5dp"
+    android:orientation="vertical"
     >
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="15dp"
-        android:layout_margin="1dp"
-        android:id="@+id/lnLayout1"
-        >
     <TextView
-
-        android:layout_gravity="center"
+        android:id="@+id/codeQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:text="Namuna kod" />
-        <LinearLayout
+        android:text="Test"
+        android:textSize="30sp"
+        android:gravity="left"
 
-            android:background="@drawable/simple_browser"
+        android:layout_margin="20dp"/>
+   <EditText
+       android:layout_centerInParent="true"
+       android:layout_width="250dp"
+       android:textSize="20sp"
+       android:focusable="true"
+       android:hint="Tegni yozing"
+       android:layout_height="wrap_content"
+       android:id="@+id/code"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <WebView
-                android:id="@+id/output"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="20dp"
-                >
-            </WebView>
-        </LinearLayout>
-
+       android:background="@drawable/fragment_code_background"
+       />
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/next_prev"
+        android:layout_margin="15dp"
         android:layout_alignParentBottom="true"
         android:paddingTop="15dp">
 
@@ -70,5 +59,4 @@
             android:drawableRight="@drawable/ic_chevron_right_black_24dp"/>
 
     </RelativeLayout>
-</LinearLayout>
-</ScrollView>
+</RelativeLayout>

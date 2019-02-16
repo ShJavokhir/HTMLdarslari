@@ -1,7 +1,9 @@
 //Bosh menyularni ko'rsatuvchi class
 package uz.dasturlash.html;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,13 +17,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout openCats,about_app,editor,colorShow;
+    LinearLayout openCats,about_app,editor,colorShow,tags;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        WhenFirstRun first = new WhenFirstRun(MainActivity.this);
         init();
+        test();
         setSupportActionBar(toolbar);
         openCats.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        tags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AllTags.class);
+                startActivity(intent);
+            }
+        });
     }
     void init(){
         colorShow = (LinearLayout) findViewById(R.id.colorsShow);
@@ -61,8 +72,14 @@ public class MainActivity extends AppCompatActivity {
         openCats = (LinearLayout) findViewById(R.id.openCats);
         toolbar =  (Toolbar) findViewById(R.id.toolbar1);
         about_app = (LinearLayout) findViewById(R.id.about_app);
+        tags = (LinearLayout) findViewById(R.id.tags);
 
 
-
+    }
+    void test(){
+        SharedPreferences pref = getSharedPreferences("base", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("salome",":)");
+        editor.commit();
     }
 }

@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 public class CodeEditor extends AppCompatActivity {
@@ -21,6 +23,9 @@ public class CodeEditor extends AppCompatActivity {
         output = (CodeEditText) findViewById(R.id.editCode);
         output.setText("<html>\n<body>\n<p align=\"center\">Salom dunyo :)</p>\n</body>\n</html>");
         outputnext = (WebView) findViewById(R.id.outputnext);
+        outputnext.getSettings().setJavaScriptEnabled(true);
+        outputnext.setWebViewClient(new WebViewClient());
+
         outputnext.loadData(String.valueOf(output.getText()),"text/html; charset=UTF-8",null);
         check.setOnClickListener(new View.OnClickListener() {
             @Override

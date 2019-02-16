@@ -5,6 +5,20 @@
   },
   {
     "type":"simpleText",
-    "text":"HTML (Hyper Text Markup Language - Gipermatnli belgilash tili) 1991-yillarda Jenevadagi Yevropa zarrachalar instituti (CERN)ning Britaniyalik olimi Tim Bernas Li tomonidan yaratilgan.Dastlab bu til mutaxasislar uchun hujjat tayyorlash vositasi sifatida yaratilgan.HTML da yozilgan kodlar Brauzerlar tomonidan akslantiriladi.U bilan asosan web sahifalar tayyorlanadi. Uning oxirgi chiqqan HTML5 talqinidan 2013 yildan buyon keng foydalaniladi. Ushbu interaktiv dasturimizda siz bilan HTML5 ni o'rganamiz. "
+    "text":"HTML (Hyper Text Markup Language - Gipermatnli belgilash tili) 1991-yillarda Jenevadagi Yevropa zarrachalar instituti (CERN)ning Britaniyalik olimi Tim Bernas Li tomonidan yaratilgan.Dastlab bu til mutaxasislar uchun hujjat tayyorlash vositasi sifatida yaratilgan.HTML da yozilgan kodlar Brauzerlar tomonidan akslantiriladi.U bilan asosan web sahifalar tayyorlanadi. Uning oxirgi chiqqan HTML5 talqinidan 2014 yildan buyon keng foydalaniladi.\nQuyida html rivojlanish tarixi: "
+
+  },
+  {
+    "type": "italicText",
+    "text": "HTML 1.0 - 1991\nHTML 2.0 - 1995\nHTML 3.2 - 1997\nHTML 4.01 - 1999\nXHTML - 2000\nHTML 5 - 2014"
+  },
+  {
+    "type": "imageView",
+    "text": "help.png"
+  },
+  {
+  "type": "writeTag",
+  "question": "Biz qaysi tilni o'rganamiz?",
+  "answer": "html"
   }
 ]

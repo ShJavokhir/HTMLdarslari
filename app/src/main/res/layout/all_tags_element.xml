@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/lnLayout2"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+   <View
+       android:layout_centerInParent="true"
+        android:id="@+id/tagColor"
+       android:layout_width="40dp"
+       android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/nums"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="null"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tagName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="left|center_vertical"
+        android:text="ExampleTagName"
+        />
+
+
+</LinearLayout>
+

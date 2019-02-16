@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Lesson extends AppCompatActivity {
     int catId=0,lesId=0;
     ArrayList<String[]>  contents = new ArrayList<String[]>();
+    String writeTag[] = new String[2];
     String code[] = new String[2];
     String codeOutput = "";
     String title = "";
@@ -49,10 +50,11 @@ public class Lesson extends AppCompatActivity {
         try {
             tabs.getTabAt(1).setIcon(R.drawable.ic_code);
             tabs.getTabAt(2).setIcon(R.drawable.ic_remove_red_eye_black_24dp);
+            tabs.getTabAt(3).setIcon(R.drawable.ic_code);
+
         }catch (Exception e){
 
         }
-
 
     }
     public void setupViewPager(ViewPager viewPager)  {
@@ -61,15 +63,19 @@ public class Lesson extends AppCompatActivity {
         Lesson_Fragment_1 fr1 = new Lesson_Fragment_1();
         Lesson_Fragment_2 fr2 = new Lesson_Fragment_2();
         Lesson_Fragment_3 fr3 = new Lesson_Fragment_3();
-
+        Lesson_Fragment_4 fr4 = new Lesson_Fragment_4();
         fr1.add(title,contents,mainViewPager);
         fr2.add(code,mainViewPager);
         fr3.add(code,mainViewPager);
+        fr4.add(writeTag,mainViewPager);
 
 
 
         //Fragmentlarni adapterga qo'shish
         adapter.addFragment(fr1, "Dars");
+            Log.e("alo","access");
+          adapter.addFragment(fr4,"Topshiriq");
+
         //Kod uchun tab. Agarda 'code' ga ma'lumot joylanmagan bo'lsa ko'rsatilmaydi
         if(!code[0].equals("")){
             Log.e("noob","kod bor");
@@ -119,9 +125,11 @@ public class Lesson extends AppCompatActivity {
                       this.code[0] = jsonobject.getString("text");
                       this.code[1] = jsonobject.getString("about");
 
-                    //}else if(type.equals("codeOutput")) {
-                     //   codeOutput = jsonobject.getString("codeOutput");
-                        }else{
+                  }else if(type.equals("writeTag")){
+                    Log.e("aloo",jsonobject.getString("question"));
+                    writeTag[0] = jsonobject.getString("question");
+                    writeTag[1] = jsonobject.getString("answer");
+                  }else{
                              String text = jsonobject.getString("text");
                              String[] temp = {type,text};
                              contents.add(temp);

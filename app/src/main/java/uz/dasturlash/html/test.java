@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -46,10 +48,16 @@ public class test extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
+        Typeface font = Typeface.createFromAsset(this.getAssets(),"fonts/RobotoRegular.ttf");
+
         question = (TextView) findViewById(R.id.question);
+        question.setTypeface(font);
         a = (TextView) findViewById(R.id.A);
+        a.setTypeface(font);
         b = (TextView) findViewById(R.id.B);
+        b.setTypeface(font);
         c = (TextView) findViewById(R.id.C);
+        c.setTypeface(font);
         next = (Button) findViewById(R.id.next);
         remained = (TextView) findViewById(R.id.remained);
         radioGroup = (RadioGroup) findViewById(R.id.tests);
@@ -111,20 +119,20 @@ public class test extends AppCompatActivity {
 
         if(wrongAns==minBall){
 
-
+            View view = getLayoutInflater().inflate(R.layout.test_result,null);
+            TextView result = (TextView) view.findViewById(R.id.result);
+            Button close = (Button) view.findViewById(R.id.okButton);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+            result.setText("Afsuski natijalar yaxshi emas :(\nBalingiz: "+ball+"\nTopish kerak bo'lgan eng past ball-"+(questions.size()-minBall));
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Natija:")
-                    .setMessage("Uzr keyingi mavzuga o'ta olmaysiz :(\nO'tgan darslarni yaxshilab o'qib chiqing")
-                    .setIcon(R.drawable.html5)
-                    .setCancelable(false)
-                    .setNegativeButton("Orga",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    finish();
-
-                                }
-                            });
+            builder.setView(view);
             AlertDialog alert = builder.create();
+            alert.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
             alert.show();
 
 
@@ -140,19 +148,24 @@ public class test extends AppCompatActivity {
 
             } else {
 
+                View view = getLayoutInflater().inflate(R.layout.test_result,null);
+                TextView result = (TextView) view.findViewById(R.id.result);
+                Button close = (Button) view.findViewById(R.id.okButton);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+                result.setText("Tabriklaymiz =)\nTestdan muvaffaqiyatli o'tdingiz.\nBalingiz: "+ball+"\nKeyingi bosqichga o'tishingiz mumkin.");
+
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Natija:")
-                        .setMessage("Testlar soni:" + questions.size() + "\nTo'g'ri belgilanganlar: " + ball + "\nTabriklaymiz :)\nKeyingi darslarga o'tishingiz mumkin.")
-                        .setIcon(R.drawable.html5)
-                        .setCancelable(false)
-                        .setNegativeButton("Keyingi darslarga o'tish",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        //keyingi darsni ochish kk
-                                        finish();
-                                    }
-                                });
+                builder.setView(view);
+
                 AlertDialog alert = builder.create();
+                alert.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
+
                 alert.show();
 
                 Log.e("noob", "Sizning olgan balingiz :" + ball);

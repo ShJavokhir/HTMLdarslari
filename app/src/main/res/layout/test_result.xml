@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/test_result_dialog">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Natija"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:layout_margin="15dp"
+        />
+    <TextView
+        android:textColor="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result"
+        android:text="ExampleExampleExampleExampleExample\nExampleExampleExampleExampleExamplevExampleExampleExampleExample\nExample"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:gravity="left"
+        android:layout_margin="15dp"
+        />
+
+    <Button
+        android:textColor="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Ortga"
+        android:id="@+id/okButton"
+        android:background="@color/blue_500"/>
+</LinearLayout>

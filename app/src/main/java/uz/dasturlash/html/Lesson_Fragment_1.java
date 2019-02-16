@@ -8,13 +8,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -52,13 +56,15 @@ public class Lesson_Fragment_1 extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 viewpager.setCurrentItem(viewpager.getCurrentItem()+1);
             }
         });
 
-
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(),"fonts/RobotoRegular.ttf");
         for (int i=0;i<contents.size();i++){
             String[] temp = contents.get(i);
+
             //TextView
             //Type ni aniqlab olish
             String type = temp[0];
@@ -71,9 +77,10 @@ public class Lesson_Fragment_1 extends Fragment {
 
                 llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
                 text.setText(temp[1]);
-                text.setTextColor(Color.parseColor("#000000"));
+                text.setTextColor(Color.parseColor("#797777"));
                 text.setLayoutParams(llp);
-                text.setTextSize(16);            }else if(type.equals("italicText")){
+                text.setTypeface(font);
+                text.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);            }else if(type.equals("italicText")){
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
                 llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
@@ -81,13 +88,13 @@ public class Lesson_Fragment_1 extends Fragment {
                 text.setText(temp[1]);
                 text.setTextColor(Color.parseColor("#00BBFF"));
                 text.setLayoutParams(llp);
-                text.setTextSize(16);
+                text.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
             }else if(type.equals("warningText")){
                 text.setText(temp[1]);
                 text.setTextColor(Color.parseColor("#FF9800"));
                 text.setBackgroundResource(R.drawable.remember_text);
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                text.setTextSize(17);                llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
+                text.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);                llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
                 text.setLayoutParams(llp);
                 text.setPadding(40,50,20,50);
             }else if(type.equals("codeText")){
@@ -103,6 +110,13 @@ public class Lesson_Fragment_1 extends Fragment {
 
                 lnLayout.addView(codeview);
                 continue;
+
+            }else if(type.equals("imageView")){
+                //int id = getResources().getIdentifier("uz.dasturlash.html:drawable/" + "qwe", null, null);
+                ImageView image = new ImageView(getActivity());
+                //image.setImageResource(id);
+                Glide.with(getContext()).load(R.drawable.logo_start).into(image);
+                lnLayout.addView(image);
 
             }
            lnLayout.addView(text);

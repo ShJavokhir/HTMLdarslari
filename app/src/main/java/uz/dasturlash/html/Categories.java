@@ -20,7 +20,7 @@ public class Categories extends AppCompatActivity {
             //Bo'limlarni e'lon qilish
             String items[] = {"HTML ga kirish!","DEMO","DEMO","DEMO","DEMO","DEMO","DEMO","DEMO"};
             CustomAdapter adapter = new CustomAdapter(this,items);
-            Animation animation = AnimationUtils.loadAnimation(this,R.anim.grid_item_anim);
+            Animation animation = AnimationUtils.loadAnimation(this,R.anim.lst_view_anim);
             GridLayoutAnimationController controller = new GridLayoutAnimationController(animation, .2f, .2f);
             lstview.setLayoutAnimation(controller);
             lstview.setAdapter(adapter);

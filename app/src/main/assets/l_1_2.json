@@ -1,27 +1,24 @@
 [
   {
     "type":"main",
-    "title":"Theme"
+    "title":"HTML hujjat tuzilishi"
   },
   {
     "type":"simpleText",
-    "text":"Simple text"
-  },
-  {
-    "type":"italicText",
-    "text":"Italic text"
-  },
-  {
-    "type":"warningText",
-    "text":"Remember text"
+    "text":"HTML hujjatning umumiy ko'rinishi quyidagicha:"
   },
   {
     "type":"codeText",
-    "text":"codeText"
+    "text":"<!DOCTYPE html>\n<html>\n<head>\n<title>Bu sarlavha</title>\n</head>\n<body>\n<!--Asosiy qism-->\n</body>\n</html>"
   },
   {
-    "type":"code",
-    "text":"<html><body><a href='kun.uz'>kun.uz\n ga kirish</a></body><html>"
+    "type":"simpleText",
+    "text":"Endi har bir qatorda yozilgan kodlarning vazifasini o'rganib chiqsak\n\n<!DOCTYPE html> : Bu kod hujjatimizning aynan HTML da yozilganini anglatadi.Hujjatni o'qiyotgan brauzer yoki dastur hujjatning html da yozilganligini bilib olishi uchun bu muhimdir\n\n<html> : Har bir HTML hujjat ushbu teg bilan boshlanib </html> tegi bilan yopilishi shart\n\n<head> : Bosh qismi.Ushbu teg ham </head> yopiluvchi tegi bilan yopilishi shart.Bu teglar orasiga hujjatni shakklantirish uchun kerak bo'ladigan ma'lumotlar yoziladi.Misol uchun sarlavha,oldindan yuklanadigan fayllar va hokazo.\n\n<title> : Ushbu head tegi ichida yozilgan teg sahifaning sarlavhasini bildiradi"
+
+  },
+  {
+    "type":"imageView",
+    "text":"dra"
   }
 
 ]

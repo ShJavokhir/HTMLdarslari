@@ -52,6 +52,7 @@
 
 
     <LinearLayout
+        android:id="@+id/tags"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:orientation="horizontal"
@@ -153,11 +154,5 @@
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textMultiLine" />
-    </LinearLayout>
+        </LinearLayout>
 </ScrollView>

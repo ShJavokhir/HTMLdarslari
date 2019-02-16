@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -55,7 +57,7 @@ public class Task extends AppCompatActivity {
         try {
             JSONArray jsonarray = new JSONArray(data);
             for (int i = 0; i < jsonarray.length(); i++) {
-                JSONObject jsonobject = jsonarray.getJSONObject(i);
+                final JSONObject jsonobject = jsonarray.getJSONObject(i);
                 //Jsondagi ma'lumot turini tekshirish uchun olish
                 String type = jsonobject.getString("type");
                 //Sarlavhalarni olish
@@ -70,7 +72,29 @@ public class Task extends AppCompatActivity {
                     lnLayout.addView(task);
                 }else if(type.equals("taskImage")){
 
+                }else if(type.equals("answer")){
+                    LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    llp.setMargins(10,10,10,10);
+                    llp.gravity = Gravity.RIGHT;
+                    Button showAnswer = new Button(this);
+                    showAnswer.setText("Javobni ko'rish");
+                    showAnswer.setLayoutParams(llp);
+                    showAnswer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                String answer = jsonobject.getString("answer");
+                                Intent intent = new Intent(Task.this,showTaskAnswer.class);
+                                intent.putExtra("answer",answer);
+                                startActivity(intent);
+                            } catch (JSONException e) {
+
+                            }
+                        }
+                    });
+                    lnLayout.addView(showAnswer);
                 }
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
