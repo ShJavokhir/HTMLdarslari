@@ -2,6 +2,7 @@
 package uz.dasturlash.html;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -17,10 +18,12 @@ public class CustomAdapterLessonsList extends BaseAdapter {
     int id = 0;
     String[] items;
     Context context;
+    SharedPreferences pref;
     public CustomAdapterLessonsList(Context context,String[] items,int id){
         this.items = items;
         this.context = context;
         this.id = id;
+        pref = context.getSharedPreferences("baza", context.MODE_PRIVATE);
     }
     @Override
     public int getCount() {
@@ -39,7 +42,8 @@ public class CustomAdapterLessonsList extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if (items[position].contains("NAZORAT")){
+        if(pref.getBoolean("Lesson_"+id+"_"+position,false)){
+             if (items[position].contains("NAZORAT")){
 
 
             if (convertView == null) {
@@ -71,6 +75,7 @@ public class CustomAdapterLessonsList extends BaseAdapter {
                         inflate(R.layout.lessons_list_item, parent, false);
             }
             LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+
             cat_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -80,7 +85,9 @@ public class CustomAdapterLessonsList extends BaseAdapter {
 
                 }
             });
+
             TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+
             itemName.setTypeface(null, Typeface.BOLD);;
             itemName.setTextColor(Color.BLUE);
             itemName.setText(position+1+". "+"Nazorat testlari");
@@ -100,10 +107,87 @@ public class CustomAdapterLessonsList extends BaseAdapter {
                     intent.putExtra("lesId", position);
                     context.startActivity(intent);
 
-                }
+                    }
             });
-            TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
-            itemName.setText(position+". "+items[position]);
+             TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+             itemName.setText(position+". "+items[position]);
+            }
+        }else{
+
+
+
+            if (items[position].contains("NAZORAT")){
+
+
+                if (convertView == null) {
+                    convertView = LayoutInflater.from(context).
+                            inflate(R.layout.lessons_list_item_locked, parent, false);
+                }
+                LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+                cat_layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context,Task.class);
+                        intent.putExtra("taskId",items[position]);
+                        context.startActivity(intent);
+
+                    }
+                });
+                TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+                itemName.setTypeface(null, Typeface.BOLD);;
+                itemName.setTextColor(Color.RED);
+                itemName.setText(position+1+". "+"Topshiriqlar");
+
+
+
+            }else if(items[position].contains("TEST")){
+
+
+                if (convertView == null) {
+                    convertView = LayoutInflater.from(context).
+                            inflate(R.layout.lessons_list_item, parent, false);
+                }
+                LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+
+                cat_layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context,test.class);
+                        intent.putExtra("testId",items[position]);
+                        context.startActivity(intent);
+
+                    }
+                });
+
+                TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+
+                itemName.setTypeface(null, Typeface.BOLD);;
+                itemName.setTextColor(Color.BLUE);
+                itemName.setText(position+1+". "+"Nazorat testlari");
+
+
+            } else {
+                if (convertView == null) {
+                    convertView = LayoutInflater.from(context).
+                            inflate(R.layout.lessons_list_item, parent, false);
+                }
+                LinearLayout cat_layout = (LinearLayout) convertView.findViewById(R.id.cat_layout);
+                cat_layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, Lesson.class);
+                        intent.putExtra("catId", id);
+                        intent.putExtra("lesId", position);
+                        context.startActivity(intent);
+
+                    }
+                });
+                TextView itemName = (TextView) convertView.findViewById(R.id.lesson_name);
+                itemName.setText(position+". "+items[position]);
+            }
+
+
+
         }
         return convertView;
     }

@@ -20,9 +20,11 @@ public class Lessons_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons_list);
-        test();
-        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+       // test();
+        toolbar = (Toolbar) findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         Intent intent = getIntent();
         int id = intent.getIntExtra("id",0);
         GetLessonList lessons = new GetLessonList();
@@ -49,4 +51,9 @@ public class Lessons_list extends AppCompatActivity {
         }
 
         }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

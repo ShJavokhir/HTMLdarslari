@@ -32,10 +32,12 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".Lesson">
+        <activity android:name=".Lesson"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
+
         </activity>
         <activity android:name=".Task">
             <intent-filter>
@@ -78,7 +80,11 @@
             </intent-filter>
         </activity>
 
-
+        <activity android:name=".CodeEditorOutput">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
     </application>
 

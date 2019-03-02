@@ -8,7 +8,7 @@
     >
     <TextView
         android:layout_gravity="center"
-        android:drawableEnd="@drawable/playlessons"
+        android:drawableEnd="@drawable/lock_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="itemName"
@@ -16,5 +16,5 @@
         android:textStyle="normal"
         android:textSize="23sp"
         android:id="@+id/lesson_name"
-        android:drawableRight="@drawable/playlessons" />
+        android:drawableRight="@drawable/lock_icon" />
 </LinearLayout>

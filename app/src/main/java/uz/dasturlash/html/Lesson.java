@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Lesson extends AppCompatActivity {
     int catId=0,lesId=0;
     ArrayList<String[]>  contents = new ArrayList<String[]>();
+    Boolean hasTask = false;
     String writeTag[] = new String[2];
     String code[] = new String[2];
     String codeOutput = "";
@@ -74,8 +75,9 @@ public class Lesson extends AppCompatActivity {
         //Fragmentlarni adapterga qo'shish
         adapter.addFragment(fr1, "Dars");
             Log.e("alo","access");
-          adapter.addFragment(fr4,"Topshiriq");
-
+            if(hasTask) {
+                adapter.addFragment(fr4, "Topshiriq");
+            }
         //Kod uchun tab. Agarda 'code' ga ma'lumot joylanmagan bo'lsa ko'rsatilmaydi
         if(!code[0].equals("")){
             Log.e("noob","kod bor");
@@ -129,6 +131,7 @@ public class Lesson extends AppCompatActivity {
                     Log.e("aloo",jsonobject.getString("question"));
                     writeTag[0] = jsonobject.getString("question");
                     writeTag[1] = jsonobject.getString("answer");
+                    hasTask = true;
                   }else{
                              String text = jsonobject.getString("text");
                              String[] temp = {type,text};

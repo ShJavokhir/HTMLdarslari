@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WhenFirstRun first = new WhenFirstRun(MainActivity.this);
         init();
         test();
         setSupportActionBar(toolbar);
@@ -67,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     void init(){
+        SharedPreferences pref = getSharedPreferences("baza", Context.MODE_PRIVATE);
+        if(!pref.contains("isFirstRunning")){
+            WhenFirstRun first = new WhenFirstRun(MainActivity.this);
+        }
+
         colorShow = (LinearLayout) findViewById(R.id.colorsShow);
         editor = (LinearLayout) findViewById(R.id.editor);
         openCats = (LinearLayout) findViewById(R.id.openCats);
@@ -77,9 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void test(){
-        SharedPreferences pref = getSharedPreferences("base", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("salome",":)");
-        editor.commit();
+
     }
 }

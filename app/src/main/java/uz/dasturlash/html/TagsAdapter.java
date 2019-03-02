@@ -18,11 +18,11 @@ import java.util.Random;
 
 public class TagsAdapter extends BaseAdapter {
     Context context;
-    String colors[] = {"#F02D3A","#9197AE","#93BC42","#52CFF2","#526FF2","#9452F2","#E452F2","#F2527F","#DAF252","#F2A32E","#93BC42","#F4EDEE","#455A64"};
+    String colors[] = {"#F44336","#42A5F5","#296FF2","#4DD0E1","#A5D67A","#CDDC39","#FFEB3B","#FF8F00","#6D4C41","#607D8B"};
     //"#C62828","#AD1457","#6A1B9A","#4527A0","#283593","#1565C0","#00695C","#2E7D32","#558B2F","#9E9D24","#F9A825","#D84315","#4E342E","#424242","#37474F","#FFC107"
-    ArrayList<String> tagNames = new ArrayList<>();
+    ArrayList<String[]>  tagNames = new ArrayList<String[]>();
     LayoutInflater inflater;
-    public TagsAdapter(ArrayList<String> tagNames,Context context){
+    public TagsAdapter(ArrayList<String[]> tagNames,Context context){
         this.tagNames = tagNames;
         this.context = context;
         inflater = (LayoutInflater)context.
@@ -54,15 +54,18 @@ public class TagsAdapter extends BaseAdapter {
         GradientDrawable draw = new GradientDrawable();
         draw.setShape(GradientDrawable.OVAL);
         Random randColor = new Random();
-        draw.setColor(Color.parseColor(colors[randColor.nextInt(12)]));
+        draw.setColor(Color.parseColor(colors[randColor.nextInt(9)]));
         tagColor.setBackground(draw);
-        tagName.setText(tagNames.get(position));
+
+        final String temp[] = tagNames.get(position);
+        tagName.setText(temp[0]);
         LinearLayout lnLayout2 = rootview.findViewById(R.id.lnLayout2);
         lnLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,TagView.class);
-                intent.putExtra("tag",tagNames.get(position));
+                intent.putExtra("file",temp[1]);
+                intent.putExtra("description",temp[0]);
                 context.startActivity(intent);
 
             }

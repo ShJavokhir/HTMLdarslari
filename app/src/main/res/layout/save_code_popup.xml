@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kodni saqlash"
+        android:layout_gravity="top"
+        android:gravity="top|center"
+        android:textSize="20sp"
+        android:layout_margin="12dp"/>
+    <EditText
+        android:id="@+id/save_code_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="23sp"
+        android:layout_margin="25dp"
+        android:hint="Kod nomini kiriting"/>
+    <TextView
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/errors_save_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/red_500"/>
+    <Button
+        android:id="@+id/save_code_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saqlash"
+        android:padding="10dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="right"
+        android:layout_margin="20dp"
+        />
+</LinearLayout>

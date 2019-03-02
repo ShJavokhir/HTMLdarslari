@@ -1,10 +1,9 @@
-//Darslar ro'yhatini saqlovchi class
 package uz.dasturlash.html;
 
 import java.util.Arrays;
 
 public class GetLessonList {
-    String[] id1 = {"HTML ga kirish","Asosiy teglar","1NAZORAT","DEMO","1TEST","DEMO"};
+    String[] id1 = {"HTML ga kirish","Full example","1NAZORAT","DEMO","1TEST","DEMO"};
     String[] id2 = {"DEMO","DEMO","DEMO","DEMO","DEMO"};
     String[] id3 = {"DEMO","DEMO","DEMO","DEMO","DEMO"};
 
