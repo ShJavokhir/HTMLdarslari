@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import thereisnospon.codeview.CodeView;
@@ -81,7 +82,8 @@ public class Lesson_Fragment_1 extends Fragment {
                 text.setTextColor(Color.parseColor("#797777"));
                 text.setLayoutParams(llp);
                 text.setTypeface(font);
-                text.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);            }else if(type.equals("italicText")){
+                text.setTextSize(TypedValue.COMPLEX_UNIT_SP,14); //14
+            }else if(type.equals("italicText")){
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
                 llp.setMargins(0, 30, 0, 30); // llp.setMargins(left, top, right, bottom);
@@ -116,7 +118,15 @@ public class Lesson_Fragment_1 extends Fragment {
                 //int id = getResources().getIdentifier("uz.dasturlash.html:drawable/" + "qwe", null, null);
                 ImageView image = new ImageView(getActivity());
                 //image.setImageResource(id);
-                Glide.with(getContext()).load(R.drawable.logo_start).into(image);
+                try {
+                    InputStream ims = getActivity().getAssets().open("2.jpg");
+                    Drawable d = Drawable.createFromStream(ims, null);
+                    Glide.with(getContext()).load(d).into(image);
+
+                }catch (Exception e){
+                    //
+                }
+                // load image as Drawable
                 lnLayout.addView(image);
 
             }

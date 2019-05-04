@@ -30,6 +30,7 @@ public class TagView extends AppCompatActivity {
     CollapsingToolbarLayout ColTool;
     LinearLayout TagViewLayout;
     String file_name;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

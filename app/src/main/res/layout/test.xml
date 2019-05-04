@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="10"
     android:background="@drawable/lesson_bg"
     android:layout_margin="15dp"
     android:id="@+id/lnLay">
@@ -25,8 +26,14 @@
             android:textColor="@color/background_start"
             android:textSize="25sp"
             android:text="savol"/>
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark1"
+            ></View>
         <RadioGroup
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/tests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -58,8 +65,9 @@
                 />
         </RadioGroup>
         <Button
+
             android:id="@+id/next"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Keyingi"

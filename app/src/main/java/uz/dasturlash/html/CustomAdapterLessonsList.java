@@ -9,9 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CustomAdapterLessonsList extends BaseAdapter {
     //quyidagi id bu category id si;
@@ -19,11 +22,15 @@ public class CustomAdapterLessonsList extends BaseAdapter {
     String[] items;
     Context context;
     SharedPreferences pref;
+    private Animation animation = null;
+
     public CustomAdapterLessonsList(Context context,String[] items,int id){
         this.items = items;
         this.context = context;
         this.id = id;
         pref = context.getSharedPreferences("baza", context.MODE_PRIVATE);
+        animation = AnimationUtils.loadAnimation(context, R.anim.lst_view_anim);
+
     }
     @Override
     public int getCount() {
@@ -127,9 +134,9 @@ public class CustomAdapterLessonsList extends BaseAdapter {
                 cat_layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(context,Task.class);
-                        intent.putExtra("taskId",items[position]);
-                        context.startActivity(intent);
+
+                        Toast.makeText(context, "Bu darsga oldingi darslarni o'rganib chiqqandan so'ng o'tishingiz mumkin", Toast.LENGTH_SHORT).show();
+
 
                     }
                 });
@@ -189,6 +196,11 @@ public class CustomAdapterLessonsList extends BaseAdapter {
 
 
         }
+        //animation.setDuration(700);
+
+        //animation = null;
+
+        convertView.setAnimation(animation);
         return convertView;
     }
 }

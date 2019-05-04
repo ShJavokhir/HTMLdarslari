@@ -32,11 +32,11 @@ public class Lessons_list extends AppCompatActivity {
         Log.e("idRaqam",String.valueOf(id));
         listView = (ListView) findViewById(R.id.lessons_list);
         CustomAdapterLessonsList adapter = new CustomAdapterLessonsList(Lessons_list.this,lesson,id);
-        Animation animation = null;
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.lst_view_anim);
+       // Animation animation = null;
+       // animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.lst_view_anim);
         //animation.setDuration(700);
-        listView.startAnimation(animation);
-        animation = null;
+      //  listView.startAnimation(animation);
+      //  animation = null;
 
         listView.setAdapter(adapter);
 

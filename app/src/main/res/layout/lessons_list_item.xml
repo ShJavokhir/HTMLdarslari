@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:clickable="true"
     android:layout_margin="25dp"
     android:id="@+id/cat_layout"
     android:orientation="horizontal"

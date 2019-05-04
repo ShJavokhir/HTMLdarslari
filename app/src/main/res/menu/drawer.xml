@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dashboard" android:title="Menu1" android:icon="@drawable/ic_dashboard_black_24dp"/>
+    <item android:id="@+id/about_app" android:title="Dastur haqida" android:icon="@drawable/code"/>
+    <item android:id="@+id/registration" android:title="Ro'yhatdan o'tish" android:icon="@drawable/gear"></item>
+    <item android:id="@+id/notifications" android:title="Notification" android:icon="@mipmap/ic_launcher_round"></item>
+    <item android:id="@+id/sign_out" android:title="Tizimdan chiqish" android:icon="@mipmap/ic_launcher_round"></item>
+</menu>

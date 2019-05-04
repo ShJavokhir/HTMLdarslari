@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+
     android:layout_margin="25dp"
     android:id="@+id/cat_layout"
     android:orientation="horizontal"

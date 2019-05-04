@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:clickable="true"
     android:id="@+id/lnLayout2"
     android:orientation="horizontal"
     android:padding="5dp"

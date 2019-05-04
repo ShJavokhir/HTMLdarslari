@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout android:layout_width="match_parent"
+    android:id="@+id/drawer1"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:gravity="http://schemas.android.com/tools">
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,8 +24,9 @@
 
     <LinearLayout
         android:id="@+id/openCats"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="130dp"
@@ -42,7 +51,7 @@
 
     <LinearLayout
         android:id="@+id/tags"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -67,7 +76,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -92,7 +101,7 @@
 
     </LinearLayout>
         <LinearLayout
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -117,31 +126,19 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_margin="15dp"
-            android:id="@+id/about_app"
-            android:background="@drawable/gradientbutton1">
-            <TextView
-                android:paddingLeft="25dp"
-                android:layout_gravity="center"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dastur haqida"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp"
-                android:src="@drawable/info"/>
-
-        </LinearLayout>
-
         </LinearLayout>
 </ScrollView>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer"
+        android:background="@color/dark1"
+        app:itemTextColor="@color/materialcolorpicker__white"
+        app:itemIconTint="@color/red_500"
+        android:layout_gravity="start"
+        >
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

@@ -67,20 +67,23 @@ public class Lesson extends AppCompatActivity {
         Lesson_Fragment_4 fr4 = new Lesson_Fragment_4();
         fr1.add(title,contents,mainViewPager);
         fr2.add(code,mainViewPager);
-        fr3.add(code,mainViewPager);
+
+        if(hasTask){
+            fr3.add(code,mainViewPager,true);
+        }else{
+            fr3.add(code,mainViewPager,false);
+        }
         fr4.add(writeTag,mainViewPager);
 
 
 
         //Fragmentlarni adapterga qo'shish
         adapter.addFragment(fr1, "Dars");
-            Log.e("alo","access");
             if(hasTask) {
                 adapter.addFragment(fr4, "Topshiriq");
             }
         //Kod uchun tab. Agarda 'code' ga ma'lumot joylanmagan bo'lsa ko'rsatilmaydi
         if(!code[0].equals("")){
-            Log.e("noob","kod bor");
             adapter.addFragment(fr2, "Namuna");
             adapter.addFragment(fr3, "Ko'rinish");
         }

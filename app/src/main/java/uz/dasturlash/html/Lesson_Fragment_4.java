@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Lesson_Fragment_4 extends Fragment {
     String que="",answer = "";
@@ -56,6 +57,8 @@ public class Lesson_Fragment_4 extends Fragment {
                     TextView textView = (TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text);
                     textView.setTextSize(25);
                     snackbar.show();
+                    unlockNextLesson();
+
                 }
             }
         });
@@ -69,5 +72,10 @@ public class Lesson_Fragment_4 extends Fragment {
             
         });
     }
+    private void unlockNextLesson(){
+        //Keyingi darsni ochish
+        Toast.makeText(getContext(), "Keyingi dars ochildi", Toast.LENGTH_SHORT).show();
+    }
+
 
 }

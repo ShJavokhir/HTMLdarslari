@@ -11,8 +11,8 @@
             android:id="@+id/cat_layout"
             android:layout_width="match_parent"
             android:layout_height="180dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="#607D8B"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp">

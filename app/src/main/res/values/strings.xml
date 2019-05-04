@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">HTML darslari</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111
+</string>
+
+    <string-array name="regions">
+        <item>Xorazm</item>
+        <item>Qoraqalpog`iston</item>
+        <item>Buxoro</item>
+        <item>Samarqand</item>
+        <item>Navoiy</item>
+        <item>Surxondaryo</item>
+        <item>Namangan</item>
+        <item>Jizzax</item>
+        <item>Qashqadaryo</item>
+        <item>Sirdaryo</item>
+        <item>Farg`ona</item>
+        <item>Toshkent</item>
+        <item>Andijon</item>
+        </string-array>
 </resources>

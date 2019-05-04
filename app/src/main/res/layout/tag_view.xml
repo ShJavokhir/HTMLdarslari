@@ -10,6 +10,9 @@
         android:id="@+id/appBarLayout"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <android.support.design.widget.CollapsingToolbarLayout
+
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:id="@+id/ColTool"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
