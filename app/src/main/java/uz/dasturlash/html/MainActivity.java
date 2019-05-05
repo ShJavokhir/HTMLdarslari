@@ -35,6 +35,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.BufferedReader;
@@ -42,10 +45,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
+import uz.dasturlash.html.models.RegisterUserFireStore;
+
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences pref = getSharedPreferences("baza", Context.MODE_PRIVATE);
     String temp = "";
     LinearLayout openCats,editor,colorShow,tags;
     Toolbar toolbar;
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void init(){
+        SharedPreferences pref = getSharedPreferences("baza", Context.MODE_PRIVATE);
+
         if(!pref.contains("isFirstRunning")){
             WhenFirstRun first = new WhenFirstRun(MainActivity.this);
         }
@@ -140,6 +147,10 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, Notification_body.class);
                         startActivity(intent);
                         break;
+                    case R.id.sign_out:
+                        FirebaseAuth.getInstance().signOut();
+                        signOut();
+                        updateUserInfoDrawer();
 
 
                 }
@@ -152,6 +163,33 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         FirebaseUser a = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        Map<String, Object> dataToSave = new HashMap<>();
+        dataToSave.put("user_name","Javohirbek");
+        dataToSave.put("familiya","shomuradov");
+        CollectionReference collectionReference = firestore.collection("asda/salom/alik");
+        RegisterUserFireStore model = new RegisterUserFireStore("Javohir","Shomuradov");
+        firestore.collection("adsa").add(dataToSave).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                if(task.isSuccessful()) {
+                    Log.e("salom", "bo'ldi!!!!");
+                }else{
+                    Log.e("salom","bo'lmadi!!!!");
+                }
+            }
+        });
+
+        /*   collectionReference.add(model).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                if(task.isSuccessful()) {
+                    Log.e("salom", "bo'ldi!!!!");
+                }else{
+                    Log.e("salom","bo'lmadi!!!!");
+                }
+            }
+        });*/
        /* a.createUserWithEmailAndPassword("Javohir595@mail.ru","Javohir595").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -215,9 +253,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.registration:
                 intent = new Intent(MainActivity.this, Registration.class);
                 startActivity(intent);
-            case R.id.sign_out:
-                FirebaseAuth.getInstance().signOut();
-                updateUserInfoDrawer();
+
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -225,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUserInfoDrawer(){
+        SharedPreferences pref = getSharedPreferences("baza", Context.MODE_PRIVATE);
         View header = navigationView.getHeaderView(0);
         TextView user_name = (TextView) header.findViewById(R.id.user_name);
         if(!pref.contains("user_name")){
@@ -234,5 +271,11 @@ public class MainActivity extends AppCompatActivity {
             user_name.setText(_user_name);
         }
     }
+    private void signOut(){
+        SharedPreferences pref = getSharedPreferences("baza", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.remove("user_name");
+        editor.apply();
 
+    }
 }
